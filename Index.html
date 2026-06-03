@@ -4,36 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de senha</title>
+    <title>Gerador de Senha</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <section class="conteudo">
         <div class="conteudo-titulo">
-            <img src="unlock.svg" alt="cadeado fechado">
+            <svg class="icone-cadeado" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0075FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
             <h2 class="titulo-principal">Gerador de senhas</h2>
-            <h3 class="titulo-secundario">Gere instantaneamente uma senha aleatória e segura</h3>
+            <h3 class="titulo-secundario">Gere instantaneamente uma senha aleatoria e segura</h3>
         </div>
+        
         <div class="conteudo-senha">
-            <label for="senha">Senha</label>
-            <input name="senha" type="text" id="campo-senha">
+            <label for="campo-senha">Senha</label>
+            <div class="senha-container">
+                <input name="senha" type="text" id="campo-senha" readonly>
+                <button class="btn-copiar" id="btn-copiar" title="Copiar senha">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                    </svg>
+                </button>
+            </div>
         </div>
+        
         <div class="parametro">
             <h3 class="parametro-titulo">Personalize sua senha</h3>
             <div class="parametro-coluna__senha">
                 <div class="parametro-senha">
-                    <h4 class="parametro-senha__titulo">Número de caracteres</h4>
-                </div>                
-                <div class="parametro-senha">
-                    <h4 class="parametro-senha__titulo">Características da senha</h4>
+                    <h4 class="parametro-senha__titulo">Numero de caracteres</h4>
+                    <div class="contador">
+                        <button class="btn-contador" id="btn-menos">-</button>
+                        <span class="contador-valor" id="contador-valor">12</span>
+                        <button class="btn-contador" id="btn-mais">+</button>
+                    </div>
                 </div>
+                
                 <div class="parametro-senha">
-                    <h4 class="parametro-senha__titulo">Força da senha</h4>
+                    <h4 class="parametro-senha__titulo">Caracteristicas da senha</h4>
+                    <div class="checkboxes">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="maiusculas" checked>
+                            <span class="checkbox-custom"></span>
+                            Letras maiusculas
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="minusculas" checked>
+                            <span class="checkbox-custom"></span>
+                            Letras minusculas
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="numeros" checked>
+                            <span class="checkbox-custom"></span>
+                            Numeros
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="simbolos">
+                            <span class="checkbox-custom"></span>
+                            Simbolos
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="parametro-senha">
+                    <h4 class="parametro-senha__titulo">Forca da senha</h4>
+                    <div class="forca-container">
+                        <div class="forca-barra">
+                            <div class="forca-progresso" id="forca-progresso"></div>
+                        </div>
+                        <div class="forca-labels">
+                            <span class="forca-label" data-strength="fraca">Fraca</span>
+                            <span class="forca-label" data-strength="media">Media</span>
+                            <span class="forca-label" data-strength="forte">Forte</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+            <button class="btn-gerar" id="btn-gerar">Gerar Nova Senha</button>
         </div>
     </section>
+    
+    <div class="toast" id="toast">Senha copiada!</div>
+    
+    <script src="script.js"></script>
 </body>
 
 </html>
