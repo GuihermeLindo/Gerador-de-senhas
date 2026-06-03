@@ -1,0 +1,19 @@
+{
+  "name": "gerador-de-senhas",
+  "version": "1.0.0",
+  "description": "Gerador de senhas aleatorias e seguras com interface moderna",
+  "main": "Index.html",
+  "scripts": {
+    "dev": "npx serve -l 3000",
+    "start": "npx serve -l 3000"
+  },
+  "keywords": [
+    "gerador",
+    "senhas",
+    "password",
+    "generator",
+    "seguranca"
+  ],
+  "author": "GuihermeLindo",
+  "license": "MIT"
+}
